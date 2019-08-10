@@ -1,0 +1,170 @@
+/* ----- General Styles ----- */
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 1.2em;
+    margin: 0 auto;
+    padding: 30px 10px;
+    line-height: 1em;
+    background: rgb(60,0,0);
+    color: #fff;
+    font-weight: 300;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+h2 {
+    font-size: 4em;
+    text-align: center;
+    color: rgb(60,0,0);
+}
+
+p {
+    color: gray;
+}
+
+#footer {
+    text-align: center;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 25%;
+}
+
+/* ----- Index Styles ----- */
+
+#info {
+    width: 10em;
+    float: left;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgb(0,0,50);
+}
+
+p.sidebar {
+    padding: 5px;
+    margin: 0;
+}
+
+#sheet {
+    top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 20%;
+}
+
+select, input[type=text] {
+    border: none;
+    width: 20em;
+    height: 1.5em;
+    box-sizing: border-box;
+}
+
+select, input[type=text], output {
+    float: right;
+}
+
+#chaSheet {
+    text-align: left;
+}
+
+#nameDiv, #classDiv, #raceDiv {
+    height: 1em;
+    line-height: 1em;
+}
+
+#lvl, #exp {
+    float: none;
+}
+
+#lvl {
+    float: right;
+}
+
+#exp {
+    float: right;
+}
+
+#lvlDiv, #expDiv {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#lvlDiv {
+    float: left;
+    padding-right: 5px;
+}
+
+#expDiv {
+    float: right;
+    padding-left: 5px;
+}
+
+#btn {
+    float: right;
+    right: 10px;
+    top: 20px;
+    position: absolute;
+}
+
+/* ----- Encounter Styles ----- */
+
+#encSheet {
+    text-align: center;
+}
+
+#tblSheet {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----- Form Styles ----- */
+
+input[type=button], input[type=submit] {
+    background: #0b7fba;
+    border: 0;
+    color: #fff;
+    font: 18px arial, sans-serif;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 20px;
+    width: 150px;
+    height: 3.5em;
+    padding: 0 10px;
+    cursor: pointer;
+    margin: 5px auto 5px;
+    display: block;
+    text-align: center;
+    border-radius: 6px;
+}
+
+/* ----- Table Styles ----- */
+
+table, th, td {
+    border: 1px solid white;
+}
+
+table {
+    background-color: #16426D;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    width: auto;
+}
+
+td {
+    height: auto;
+    color: white;
+}

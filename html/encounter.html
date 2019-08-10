@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Encounter</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Gage Hunter">
+    <link rel="stylesheet" media="screen" type="text/css" href="..\styles/css.css" />
+    <script src="..\js/js.js"></script>
+    <script src="..\js/level.js"></script>
+    <script src="..\js/encounter.js"></script>
+    <script>
+        window.onload = function () {
+            encLoad();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="encSheet">
+        <table id="tblSheet">
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Race</th>
+                <th>Level</th>
+                <th>EXP</th>
+                <th>Next Level</th>
+            </tr>
+            <tr>
+                <td id="tdName"></td>
+                <td id="tdClass"></td>
+                <td id="tdRace"></td>
+                <td id="tdLevel"></td>
+                <td id="tdEXP"></td>
+                <td id="tdNxtLvl"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="content">
+        
+    </div>
+
+    <form id="footer" action="../index.html"><input type="submit" id="nextPg" value="Home" /></form>
+</body>
+
+</html>
