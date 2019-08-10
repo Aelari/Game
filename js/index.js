@@ -4,21 +4,21 @@
     localStorage.setItem("Rce", Race);
     localStorage.setItem("Lvl", Level);
 
-    localStorage.setItem("str", Strength);
-    localStorage.setItem("dex", Dexterity);
-    localStorage.setItem("con", Constitution);
-    localStorage.setItem("int", Intelligence);
-    localStorage.setItem("cha", Charisma);
-    localStorage.setItem("wis", Wisdom);
+    localStorage.setItem("Str", Strength);
+    localStorage.setItem("Dex", Dexterity);
+    localStorage.setItem("Con", Constitution);
+    localStorage.setItem("Int", Intelligence);
+    localStorage.setItem("Cha", Charisma);
+    localStorage.setItem("Wis", Wisdom);
 
     localStorage.setItem("EXP", cXP);
     localStorage.setItem("NXT", nxtLvl);
 }
 
 function update() {
-    stats()
-    raceBonus()
-    saveChara()
+    stats();
+    raceBonus();
+    saveChara();
 }
 
 function stats() {
@@ -118,18 +118,18 @@ function saveChara() {
     chaNm = document.getElementById("chaName").value;
     Class = document.getElementById("class").value;
     Race = document.getElementById("race").value;
-    Level = parseInt(document.getElementById("lvl").value);
+    Level = document.getElementById("lvl").value;
 
-    Strength = parseInt(document.getElementById("str").value);
-    Dexterity = parseInt(document.getElementById("dex").value);
-    Constitution = parseInt(document.getElementById("con").value);
-    Intelligence = parseInt(document.getElementById("int").value);
-    Charisma = parseInt(document.getElementById("cha").value);
-    Wisdom = parseInt(document.getElementById("wis").value);
+    Strength = document.getElementById("str").value;
+    Dexterity = document.getElementById("dex").value;
+    Constitution = document.getElementById("con").value;
+    Intelligence = document.getElementById("int").value;
+    Charisma = document.getElementById("cha").value;
+    Wisdom = document.getElementById("wis").value;
 
-    cXP = parseInt(document.getElementById("exp").value);
+    cXP = document.getElementById("exp").value;
 
-    nxtLvl = parseInt(document.getElementById(lvl).value * 100 * 1.5);
+    nxtLvl = document.getElementById(lvl).value * 100 * 1.5;
 }
 
 function saveFile() {
@@ -138,48 +138,76 @@ function saveFile() {
     localStorage.Rce = document.getElementById("race").value;
     localStorage.Lvl = document.getElementById("lvl").value;
 
-    localStorage.str = document.getElementById("str").value;
-    localStorage.dex = document.getElementById("dex").value;
-    localStorage.con = document.getElementById("con").value;
-    localStorage.int = document.getElementById("int").value;
-    localStorage.cha = document.getElementById("cha").value;
-    localStorage.wis = document.getElementById("wis").value;
+    localStorage.Str = document.getElementById("str").value;
+    localStorage.Dex = document.getElementById("dex").value;
+    localStorage.Con = document.getElementById("con").value;
+    localStorage.Int = document.getElementById("int").value;
+    localStorage.Cha = document.getElementById("cha").value;
+    localStorage.Wis = document.getElementById("wis").value;
 
     localStorage.EXP = document.getElementById("exp").value;
     localStorage.NXT = document.getElementById("nxt").value;
-}
-
-function loadFile() {
-    document.getElementById("chaName").value = localStorage.chNm;
-    document.getElementById("class").value = localStorage.Cls;
-    document.getElementById("race").value = localStorage.Rce;
-    document.getElementById("lvl").value = parseInt(localStorage.Lvl);
-
-    document.getElementById("str").value = parseInt(localStorage.str);
-    document.getElementById("dex").value = parseInt(localStorage.dex);
-    document.getElementById("con").value = parseInt(localStorage.con);
-    document.getElementById("int").value = parseInt(localStorage.int);
-    document.getElementById("cha").value = parseInt(localStorage.cha);
-    document.getElementById("wis").value = parseInt(localStorage.wis);
-
-    document.getElementById("exp").value = parseInt(localStorage.EXP);
 
     chaNm = document.getElementById("chaName").value;
     Class = document.getElementById("class").value;
     Race = document.getElementById("race").value;
-    Level = parseInt(document.getElementById("lvl").value);
+    Level = document.getElementById("lvl").value;
 
-    Strength = parseInt(document.getElementById("str").value);
-    Dexterity = parseInt(document.getElementById("dex").value);
-    Constitution = parseInt(document.getElementById("con").value);
-    Intelligence = parseInt(document.getElementById("int").value);
-    Charisma = parseInt(document.getElementById("cha").value);
-    Wisdom = parseInt(document.getElementById("wis").value);
+    Strength = document.getElementById("str").value;
+    Dexterity = document.getElementById("dex").value;
+    Constitution = document.getElementById("con").value;
+    Intelligence = document.getElementById("int").value;
+    Charisma = document.getElementById("cha").value;
+    Wisdom = document.getElementById("wis").value;
 
-    cXP = parseInt(document.getElementById("exp").value);
+    cXP = document.getElementById("exp").value;
 
     nxtLvl = Level * 100 * 1.5;
     document.getElementById("nxt").value = nxtLvl;
+    
+    document.getElementById("print").innerHTML = localStorage.getItem("chNm") + ' ' + localStorage.getItem("Cls") + ' ' + localStorage.Rce;
+}
+
+function loadFile() {
+    if (localStorage.chNm != null) {
+        document.getElementById("chaName").value = localStorage.chNm;
+        document.getElementById("class").value = localStorage.Cls;
+        document.getElementById("race").value = localStorage.Rce;
+        document.getElementById("lvl").value = localStorage.Lvl;
+
+        document.getElementById("str").value = localStorage.Str;
+        document.getElementById("dex").value = localStorage.Dex;
+        document.getElementById("con").value = localStorage.Con;
+        document.getElementById("int").value = localStorage.Int;
+        document.getElementById("cha").value = localStorage.Cha;
+        document.getElementById("wis").value = localStorage.Wis;
+
+        document.getElementById("exp").value = localStorage.EXP;
+
+        chaNm = document.getElementById("chaName").value;
+        Class = document.getElementById("class").value;
+        Race = document.getElementById("race").value;
+        Level = document.getElementById("lvl").value;
+
+        Strength = document.getElementById("str").value;
+        Dexterity = document.getElementById("dex").value;
+        Constitution = document.getElementById("con").value;
+        Intelligence = document.getElementById("int").value;
+        Charisma = document.getElementById("cha").value;
+        Wisdom = document.getElementById("wis").value;
+
+        cXP = document.getElementById("exp").value;
+
+        nxtLvl = Level * 100 * 1.5;
+        document.getElementById("nxt").value = nxtLvl;
+    }
+    else {
+        alert("Please create a character.")
+    }
+}
+
+function clrData() {
+    localStorage.clear();
 }
 
 function validateForm() {

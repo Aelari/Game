@@ -12,3 +12,7 @@ var Wisdom = 10;
 
 var cXP = 0;
 var nxtLvl = Level * 100 * 1.5;
+
+var lclStrg = localStorage.chNm;
+
+window.localStorage

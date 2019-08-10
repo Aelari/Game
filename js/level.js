@@ -8,7 +8,7 @@
 }
 
 function levelUp() {
-    cXP = cXP + 100;
+    cXP = parseInt(cXP) + 100;
 
     document.getElementById("exp").innerHTML = cXP;
 }
