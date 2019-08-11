@@ -1,6 +1,6 @@
 var chaNm = "";
-var Class = "";
 var Race = "";
+var Class = "";
 var Level = 1;
 
 var Strength = 10;

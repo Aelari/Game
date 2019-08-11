@@ -128,9 +128,9 @@ select, input[type=text], output {
     text-align: center;
 }
 
-#tblSheet {
-    margin-left: auto;
-    margin-right: auto;
+.tbl {
+    clear: left;
+    margin-bottom: 5px;
 }
 
 /* ----- Form Styles ----- */

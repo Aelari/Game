@@ -1,0 +1,23 @@
+<--- a0.0.5 - 11/08/2019 --->
+*Added 4 skills for each Class.
+*Reworked character level up system to match skills.
+
+<--- a0.0.4 - 11/08/2019 --->
+*Fixed skill level up functions.
+*Modified test function for skill experience.
+
+<--- a0.0.3 - 11/08/2019 --->
+*Added some skills for Barbarian and Cleric.
+*Added levels and a progression score for skills.
+*Added function to read skills from Class.
+*Added function to print a table of skills.
+*Added test button to give skill experience to the character.
+*Swapped Class and Race so that Race is first.
+
+<--- a0.0.2 - 11/08/2019 --->
+* Fixed issues with the functionality of the Import/Export character functions.
+* Fixed issues with general functionality of localStorage implementation when using Firefox.
+* Rejigged file structure to improve usability.
+* Added additional test buttons for character creation.
+
+<--- a0.0.1 - 11/08/2019 --->

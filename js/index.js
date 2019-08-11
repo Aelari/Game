@@ -1,7 +1,7 @@
 ﻿function sheetLoad() {
     localStorage.setItem("chNm", chaNm);
-    localStorage.setItem("Cls", Class);
     localStorage.setItem("Rce", Race);
+    localStorage.setItem("Cls", Class);
     localStorage.setItem("Lvl", Level);
 
     localStorage.setItem("Str", Strength);
@@ -16,9 +16,36 @@
 }
 
 function update() {
-    stats();
     raceBonus();
+    stats();
     saveChara();
+}
+
+function raceBonus() {
+    if (document.getElementById("race").value == "Human") {
+        document.getElementById("str").value = parseInt(document.getElementById("str").value) + 2;
+        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 1;
+    }
+    else if (document.getElementById("race").value == "Dwarf") {
+        document.getElementById("str").value = parseInt(document.getElementById("str").value) + 1;
+        document.getElementById("con").value = parseInt(document.getElementById("con").value) + 2;
+    }
+    else if (document.getElementById("race").value == "Elf") {
+        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 2;
+        document.getElementById("wis").value = parseInt(document.getElementById("wis").value) + 1;
+    }
+    else if (document.getElementById("race").value == "Halfling") {
+        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 1;
+        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 2;
+    }
+    else if (document.getElementById("race").value == "Half-Elf") {
+        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 2;
+        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 1;
+    }
+    else if (document.getElementById("race").value == "Gnome") {
+        document.getElementById("int").value = parseInt(document.getElementById("int").value) + 2;
+        document.getElementById("wis").value = parseInt(document.getElementById("wis").value) + 1;
+    }
 }
 
 function stats() {
@@ -72,33 +99,6 @@ function stats() {
     }
 }
 
-function raceBonus() {
-    if (document.getElementById("race").value == "Human") {
-        document.getElementById("str").value = parseInt(document.getElementById("str").value) + 2;
-        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 1;
-    }
-    else if (document.getElementById("race").value == "Dwarf") {
-        document.getElementById("str").value = parseInt(document.getElementById("str").value) + 1;
-        document.getElementById("con").value = parseInt(document.getElementById("con").value) + 2;
-    }
-    else if (document.getElementById("race").value == "Elf") {
-        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 2;
-        document.getElementById("wis").value = parseInt(document.getElementById("wis").value) + 1;
-    }
-    else if (document.getElementById("race").value == "Halfling") {
-        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 1;
-        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 2;
-    }
-    else if (document.getElementById("race").value == "Half-Elf") {
-        document.getElementById("dex").value = parseInt(document.getElementById("dex").value) + 2;
-        document.getElementById("cha").value = parseInt(document.getElementById("cha").value) + 1;
-    }
-    else if (document.getElementById("race").value == "Gnome") {
-        document.getElementById("int").value = parseInt(document.getElementById("int").value) + 2;
-        document.getElementById("wis").value = parseInt(document.getElementById("wis").value) + 1;
-    }
-}
-
 function resetSheet() {
     document.getElementById("chaSheet").reset();
 
@@ -115,9 +115,11 @@ function resetSheet() {
 }
 
 function saveChara() {
+    saveFile();
+
     chaNm = document.getElementById("chaName").value;
-    Class = document.getElementById("class").value;
     Race = document.getElementById("race").value;
+    Class = document.getElementById("class").value;
     Level = document.getElementById("lvl").value;
 
     Strength = document.getElementById("str").value;
@@ -134,8 +136,8 @@ function saveChara() {
 
 function saveFile() {
     localStorage.chNm = document.getElementById("chaName").value;
-    localStorage.Cls = document.getElementById("class").value;
     localStorage.Rce = document.getElementById("race").value;
+    localStorage.Cls = document.getElementById("class").value;
     localStorage.Lvl = document.getElementById("lvl").value;
 
     localStorage.Str = document.getElementById("str").value;
@@ -149,8 +151,8 @@ function saveFile() {
     localStorage.NXT = document.getElementById("nxt").value;
 
     chaNm = document.getElementById("chaName").value;
-    Class = document.getElementById("class").value;
     Race = document.getElementById("race").value;
+    Class = document.getElementById("class").value;
     Level = document.getElementById("lvl").value;
 
     Strength = document.getElementById("str").value;
@@ -171,8 +173,8 @@ function saveFile() {
 function loadFile() {
     if (localStorage.chNm != null) {
         document.getElementById("chaName").value = localStorage.chNm;
-        document.getElementById("class").value = localStorage.Cls;
         document.getElementById("race").value = localStorage.Rce;
+        document.getElementById("class").value = localStorage.Cls;
         document.getElementById("lvl").value = localStorage.Lvl;
 
         document.getElementById("str").value = localStorage.Str;
@@ -185,8 +187,8 @@ function loadFile() {
         document.getElementById("exp").value = localStorage.EXP;
 
         chaNm = document.getElementById("chaName").value;
-        Class = document.getElementById("class").value;
         Race = document.getElementById("race").value;
+        Class = document.getElementById("class").value;
         Level = document.getElementById("lvl").value;
 
         Strength = document.getElementById("str").value;
@@ -207,7 +209,9 @@ function loadFile() {
 }
 
 function clrData() {
-    localStorage.clear();
+    confirm("Are you sure? This will erase all saved data. You will have to start from scratch."); {
+        localStorage.clear();
+    }
 }
 
 function validateForm() {

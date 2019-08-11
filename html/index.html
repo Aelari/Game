@@ -9,11 +9,6 @@
     <script src="..\js/level.js"></script>
     <script src="..\js/index.js"></script>
     <script src="..\js/encounter.js"></script>
-    <script>
-        window.onload = function () {
-            document.getElementById("print").innerHTML = lclStrg;
-        }
-    </script>
 </head>
 
 <body>
@@ -32,18 +27,6 @@
                 Name: <input type="text" id="chaName">
             </div>
             <hr>
-            <div id="classDiv">
-                Class: <select id="class" onchange="update()">
-                    <option disabled selected value=""> -- select a class -- </option>
-                    <option value="Fighter">Fighter</option>
-                    <option value="Barbarian">Barbarian</option>
-                    <option value="Cleric">Cleric</option>
-                    <option value="Rogue">Rogue</option>
-                    <option value="Ranger">Ranger</option>
-                    <option value="Wizard">Wizard</option>
-                </select>
-            </div>
-            <hr>
             <div id="raceDiv">
                 Race: <select id="race" onchange="update()">
                     <option disabled selected value=""> -- select a race -- </option>
@@ -53,6 +36,18 @@
                     <option value="Halfling">Halfling - Cha/Dex</option>
                     <option value="Half-Elf">Half-Elf - Dex/Cha</option>
                     <option value="Gnome">Gnome - Int/Wis</option>
+                </select>
+            </div>
+            <hr>
+            <div id="classDiv">
+                Class: <select id="class" onchange="update()">
+                    <option disabled selected value=""> -- select a class -- </option>
+                    <option value="Fighter">Fighter</option>
+                    <option value="Barbarian">Barbarian</option>
+                    <option value="Cleric">Cleric</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Wizard">Wizard</option>
                 </select>
             </div>
             <hr>
