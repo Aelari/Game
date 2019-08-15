@@ -13,6 +13,7 @@ body {
     background: rgb(60,0,0);
     color: #fff;
     font-weight: 300;
+    min-height: 500px;
 }
 
 h1 {
@@ -121,17 +122,34 @@ select, input[type=text], output {
     color: white;
     line-height: 1em;
     height: 1em;
+    bottom: 100px;
+    position: fixed;
 }
 
 /* ----- Encounter Styles ----- */
 
 #encSheet {
+    position: fixed;
+    z-index: -1;
     text-align: center;
+    clear: none;
+    top: 30px;
 }
 
 .tbl {
-    clear: left;
     margin-bottom: 5px;
+}
+
+#tblCreature {
+    clear: none;
+    z-index: 1;
+    margin: auto;
+}
+
+#creatureName {
+    width: 50%;
+    margin: auto;
+    text-align: center;
 }
 
 /* ----- Form Styles ----- */

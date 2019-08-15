@@ -48,7 +48,7 @@ function levelUp() {
     var cXPr = 0;
     cXP = parseInt(cXP) + 100;
 
-    if (cXP > nxtLvl) {
+    if (cXP >= nxtLvl) {
         cXPr = cXP - nxtLvl;
         cXP = cXPr;
         Level++;
@@ -115,6 +115,7 @@ function BuildArray(size) {
 }
 
 function fillSkill() {
+    skl = 1;
     while (skl <= chLvl) {
         var tbl = document.getElementById("tblSkills");
 
@@ -148,6 +149,7 @@ function fillSkill() {
 function updateSkill() {
     skl = 1;
     var row = 1;
+    var text = "";
 
     sklNxt = sklLvlN * 50;
     var sklPrgE = parseInt(this["sklPrg" + skl]);
@@ -166,7 +168,7 @@ function updateSkill() {
         sklPrgE = parseInt(this["sklPrg" + skl]);
         sklNxt = sklLvlN * 50;
         sklPrgP = sklPrgE / sklNxt * 100;
-                
+
         cell1 = document.getElementById("tblSkills").rows[row].cells[0];
         cell2 = document.getElementById("tblSkills").rows[row].cells[1];
         cell3 = document.getElementById("tblSkills").rows[row].cells[2];
@@ -178,18 +180,19 @@ function updateSkill() {
             sklPrgE = sklPrgR;
             sklPrgP = sklPrgE / sklNxt * 100;
         }
-        
+
+        text += chLvl + ' ' + skl + ' ' + skill[skl] + ' ' + this["sklPrg" + skl] + "<br>";
+
         cell1.innerHTML = skill[skl];
         cell2.innerHTML = sklLvlN;
         cell3.innerHTML = sklPrgP.toFixed(0) + "%";
-
-        document.getElementById("print").innerHTML = chLvl + ' ' + skl + ' ' + skill[skl] + ' ' + this["sklPrg" + skl];
 
         this["sklLvl" + skl] = sklLvlN;
         this["sklPrg" + skl] = sklPrgE;
         row++;
         skl++;
     }
+    document.getElementById("print").innerHTML = text;
     skl = 1;
     row = 1;
 }

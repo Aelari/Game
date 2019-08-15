@@ -10,6 +10,9 @@ var Intelligence = 10;
 var Charisma = 10;
 var Wisdom = 10;
 
+var hitPoints = 10;
+var armourClass = 10;
+
 var cXP = 0;
 var nxtLvl = Level * 100 * 1.5;
 

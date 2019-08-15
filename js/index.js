@@ -11,13 +11,16 @@
     localStorage.setItem("Cha", Charisma);
     localStorage.setItem("Wis", Wisdom);
 
+    localStorage.setItem("HP", hitPoints)
+    localStorage.setItem("AC", armourClass)
+
     localStorage.setItem("EXP", cXP);
     localStorage.setItem("NXT", nxtLvl);
 }
 
 function update() {
-    raceBonus();
     stats();
+    raceBonus();
     saveChara();
 }
 
@@ -56,6 +59,7 @@ function stats() {
         document.getElementById("int").value = 11;
         document.getElementById("cha").value = 9;
         document.getElementById("wis").value = 14;
+        armourClass = 16;
     }
     else if (document.getElementById("class").value == "Barbarian") {
         document.getElementById("str").value = 16;
@@ -64,6 +68,7 @@ function stats() {
         document.getElementById("int").value = 9;
         document.getElementById("cha").value = 15;
         document.getElementById("wis").value = 11;
+        armourClass = 14;
     }
     else if (document.getElementById("class").value == "Cleric") {
         document.getElementById("str").value = 15;
@@ -72,6 +77,7 @@ function stats() {
         document.getElementById("int").value = 11;
         document.getElementById("cha").value = 14;
         document.getElementById("wis").value = 17;
+        armourClass = 15;
     }
     else if (document.getElementById("class").value == "Rogue") {
         document.getElementById("str").value = 11;
@@ -80,6 +86,7 @@ function stats() {
         document.getElementById("int").value = 15;
         document.getElementById("cha").value = 16;
         document.getElementById("wis").value = 14;
+        armourClass = 12;
     }
     else if (document.getElementById("class").value == "Ranger") {
         document.getElementById("str").value = 14;
@@ -88,6 +95,7 @@ function stats() {
         document.getElementById("int").value = 15;
         document.getElementById("cha").value = 9;
         document.getElementById("wis").value = 16;
+        armourClass = 13;
     }
     else if (document.getElementById("class").value == "Wizard") {
         document.getElementById("str").value = 9;
@@ -96,6 +104,7 @@ function stats() {
         document.getElementById("int").value = 17;
         document.getElementById("cha").value = 15;
         document.getElementById("wis").value = 16;
+        armourClass = 11;
     }
 }
 
@@ -147,6 +156,9 @@ function saveFile() {
     localStorage.Cha = document.getElementById("cha").value;
     localStorage.Wis = document.getElementById("wis").value;
 
+    localStorage.HP = (parseInt(localStorage.Con) + 10) * parseInt(localStorage.Lvl);
+    localStorage.AC = armourClass;
+
     localStorage.EXP = document.getElementById("exp").value;
     localStorage.NXT = document.getElementById("nxt").value;
 
@@ -166,8 +178,8 @@ function saveFile() {
 
     nxtLvl = Level * 100 * 1.5;
     document.getElementById("nxt").value = nxtLvl;
-    
-    document.getElementById("print").innerHTML = localStorage.getItem("chNm") + ' ' + localStorage.getItem("Cls") + ' ' + localStorage.Rce;
+
+    document.getElementById("print").innerHTML = localStorage.getItem("chNm") + ' ' + localStorage.getItem("Cls") + ' ' + localStorage.Rce + " " + localStorage.HP;
 }
 
 function loadFile() {
@@ -202,6 +214,8 @@ function loadFile() {
 
         nxtLvl = Level * 100 * 1.5;
         document.getElementById("nxt").value = nxtLvl;
+
+        update();
     }
     else {
         alert("Please create a character.")

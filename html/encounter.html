@@ -17,51 +17,71 @@
 </head>
 
 <body>
-    <div id="encSheet">
-        <table id="tblSheet" class="tbl">
-            <tr>
-                <th>Name</th>
-                <th>Race</th>
-                <th>Class</th>
-            </tr>
-            <tr>
-                <td id="tdName"></td>
-                <td id="tdRace"></td>
-                <td id="tdClass"></td>
-            </tr>
-            <tr>
-                <th>Level</th>
-                <th>EXP</th>
-                <th>Next Level</th>
-            </tr>
-            <tr>
-                <td id="tdLevel"></td>
-                <td id="tdEXP"></td>
-                <td id="tdNxtLvl"></td>
-            </tr>
-        </table>
-        <table id="tblSkills" class="tbl">
-            <tr>
-                <th>Skill</th>
-                <th>Level</th>
-                <th>Progress</th>
-            </tr>
-        </table>
-    </div>
-
     <div id="content">
-        <div id="print"></div>
-
-        <div id="creatureName"></div>
+        <div id="creatureName">
+            <table id="tblCreature" class="tbl">
+                <tr>
+                    <th>Creature</th>
+                    <th>Class</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Hitpoints</th>
+                </tr>
+                <tr>
+                    <td id="creature"></td>
+                    <td id="cClass"></td>
+                    <td id="type"></td>
+                    <td id="level"></td>
+                    <td id="hp"></td>
+                </tr>
+            </table>
+        </div>
         <div id="creatureInfo"></div>
 
+        <div id="encSheet">
+            <table id="tblSheet" class="tbl">
+                <tr>
+                    <th>Name</th>
+                    <th>Race</th>
+                    <th>Class</th>
+                    <th>HP</th>
+                </tr>
+                <tr>
+                    <td id="tdName"></td>
+                    <td id="tdRace"></td>
+                    <td id="tdClass"></td>
+                    <td id="tdHP"></td>
+                </tr>
+                <tr>
+                    <th>Level</th>
+                    <th>EXP</th>
+                    <th>Next Level</th>
+                    <th>AC</th>
+                </tr>
+                <tr>
+                    <td id="tdLevel"></td>
+                    <td id="tdEXP"></td>
+                    <td id="tdNxtLvl"></td>
+                    <td id="tdAC"></td>
+                </tr>
+            </table>
+            <table id="tblSkills" class="tbl">
+                <tr>
+                    <th>Skill</th>
+                    <th>Level</th>
+                    <th>Progress</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div id="btn">
+        <input type="button" id="rndEnc" value="Random Encounter" onclick="encType()" />
         <input type="button" id="lvlSkl" value="Level Skill" onclick="lvlSkl()" />
     </div>
 
     <form id="footer" action="./index.html"><input type="submit" id="nextPg" value="Home" /></form>
+    <div id="print"></div>
 </body>
 
 </html>
