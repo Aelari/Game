@@ -184,6 +184,7 @@ function saveFile() {
 
 function loadFile() {
     if (localStorage.chNm != null) {
+        localStorage.setItem("importedChar", "y");
         document.getElementById("chaName").value = localStorage.chNm;
         document.getElementById("race").value = localStorage.Rce;
         document.getElementById("class").value = localStorage.Cls;

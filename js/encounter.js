@@ -7,13 +7,17 @@
     document.getElementById("tdEXP").innerHTML = localStorage.EXP;
     document.getElementById("tdNxtLvl").innerHTML = localStorage.NXT;
     document.getElementById("tdAC").innerHTML = localStorage.AC;
-
-    document.getElementById("print").innerHTML = chaNm + ' ' + localStorage.getItem("Rce") + ' ' + localStorage.getItem("Cls");
-
+    
+    document.getElementById("print").innerHTML = localStorage.importedChar + " ";
     fillSkill();
-    updateSkill();
+    if (localStorage.importedChar == "y") {
+        loadSkill();
+    }
     encType();
+    sklBtnFill();
 }
+
+var cHP = 0;
 
 var numTypes = 3;
 
@@ -35,7 +39,11 @@ var type = new BuildArray(numTypes);
 
 var subtype = new BuildArray(variety);
 
-var cHP = 0;
+var crClass = new BuildArray(eClass);
+
+var mLvl = Math.min(Math.floor((Math.random() * maxLvl) + minLvl), maxLvl);
+var minLvl = Math.max(parseInt(localStorage.Lvl) - 3, 1);
+var maxLvl = parseInt(localStorage.Lvl) + 3;
 
 function encSubType() {
     if (rnd1 == 1) {
@@ -88,8 +96,6 @@ function randEncType() {
         }
         return this
     }
-
-    document.getElementById("print").innerHTML = rnd1 + " " + rnd2 + " " + rnd4;
     randEncSub();
 }
 
@@ -161,19 +167,40 @@ function encClass() {
     }
 }
 
-function encType() {
-    var minLvl = Math.max(Level - 5, 1);
-    var maxLvl = parseInt(localStorage.Lvl) + 5;
+function eHealth() {
+    if (document.getElementById("cClass").innerHTML == "Shaman" || document.getElementById("cClass").innerHTML == "Wizard") {
+        cHP = mLvl * 11;
+    }
+    else if (document.getElementById("cClass").innerHTML == "Fighter" || document.getElementById("cClass").innerHTML == "Cleric") {
+        cHP = mLvl * 13;
+    }
+    else if (document.getElementById("cClass").innerHTML == "Rogue" || document.getElementById("cClass").innerHTML == "Ranger") {
+        cHP = mLvl * 12;
+    }
+    else if (document.getElementById("cClass").innerHTML == "Barbarian") {
+        cHP = mLvl * 14;
+    }
+    else {
+        cHP = mLvl * 20;
+    }
+}
 
+function encType() {
     rnd1 = Math.ceil(Math.random() * numTypes);
     encSubType();
     rnd2 = Math.ceil(Math.random() * variety);
     randEncType();
-    rnd4 = Math.ceil(Math.random() * eClass);
     encClass();
+    rnd4 = Math.ceil(Math.random() * eClass);
+    minLvl = Math.max(parseInt(localStorage.Lvl) - 3, 1);
+    maxLvl = parseInt(localStorage.Lvl) + 3;
+    
+    mLvl = Math.min(Math.floor((Math.random() * maxLvl) + minLvl), maxLvl);
 
     document.getElementById("creature").innerHTML = subtype[rnd2];
     document.getElementById("type").innerHTML = type[rnd1];
     document.getElementById("cClass").innerHTML = crClass[rnd4];
-    document.getElementById("level").innerHTML = Math.floor((Math.random() * maxLvl) + minLvl);
+    document.getElementById("level").innerHTML = mLvl;
+    eHealth();
+    document.getElementById("hp").innerHTML = cHP;
 }

@@ -194,3 +194,10 @@ td {
     height: auto;
     color: white;
 }
+
+/* ----- Overrides ----- */
+
+.sklBtn {
+    opacity: 0;
+    pointer-events: none;
+}

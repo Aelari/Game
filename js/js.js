@@ -16,6 +16,6 @@ var armourClass = 10;
 var cXP = 0;
 var nxtLvl = Level * 100 * 1.5;
 
-var lclStrg = localStorage.chNm;
+var dmg = 0;
 
-window.localStorage
+var lclStrg = localStorage.chNm;
